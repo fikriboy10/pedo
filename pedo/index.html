@@ -1,0 +1,836 @@
+<!doctype html>
+<html class="no-js" lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <title>Warung Pedo - Penuh Doa, Penuh Rasa Sejak 2017</title>
+    <meta name="description" content="Warung Pedo menyajikan makanan dengan doa. Ayam Penyet Terpedo, Soto Betawi, Doger Special, dan berbagai menu lainnya. Order via QR Code langsung dari meja Anda.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+        
+    <!--====== CSS Libraries ======-->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/LineIcons.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!--====== Custom CSS Warung Pedo ======-->
+    <style>
+        :root {
+            --pedo-orange: #F97316;
+            --pedo-orange-light: #FFEDD5;
+            --pedo-orange-dark: #EA580C;
+            --pedo-brown: #92400E;
+            --pedo-cream: #FFF7ED;
+        }
+        
+        /* Custom Classes */
+        .pedo-bg {
+            background-color: var(--pedo-cream) !important;
+        }
+        
+        .pedo-text {
+            color: var(--pedo-orange) !important;
+        }
+        
+        .pedo-bg-orange {
+            background-color: var(--pedo-orange) !important;
+        }
+        
+        .btn-pedo {
+            background-color: var(--pedo-orange);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-pedo:hover {
+            background-color: var(--pedo-orange-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .btn-pedo-outline {
+            background-color: transparent;
+            color: var(--pedo-orange);
+            border: 2px solid var(--pedo-orange);
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-pedo-outline:hover {
+            background-color: var(--pedo-orange);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Navbar Custom */
+        .navbar-area {
+            background-color: var(--pedo-orange) !important;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-area .navbar-brand {
+            color: white !important;
+            font-weight: 700;
+            font-size: 24px;
+        }
+        
+        .navbar-area .navbar-brand small {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .navbar-area .navbar-nav .nav-item a {
+            color: white !important;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+        
+        .navbar-area .navbar-nav .nav-item a:hover {
+            color: #FFEDD5 !important;
+        }
+        
+        /* Menu Cards */
+        .menu-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            background: white;
+            height: 100%;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(249, 115, 22, 0.15);
+        }
+        
+        .menu-badge {
+            background-color: var(--pedo-orange);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 2;
+        }
+        
+        .menu-badge.best-seller {
+            background: linear-gradient(45deg, #F97316, #EA580C);
+        }
+        
+        .menu-badge.new {
+            background: linear-gradient(45deg, #10B981, #059669);
+        }
+        
+        /* Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background-color: var(--pedo-orange);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            width: 1px;
+            height: calc(100% + 5px);
+            background-color: #e5e7eb;
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        
+        /* QR Code Section */
+        .qr-step {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .qr-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
+        }
+        
+        .qr-step .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--pedo-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Cards */
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
+        }
+        
+        .contact-card i {
+            font-size: 40px;
+            color: var(--pedo-orange);
+            margin-bottom: 20px;
+        }
+        
+        /* Hero Section Override */
+        .slider_area {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, #FFEDD5 0%, #FFF7ED 100%);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .slider_area {
+                padding-top: 100px;
+                padding-bottom: 50px;
+                text-align: center;
+            }
+            
+            .menu-card {
+                margin-bottom: 30px;
+            }
+            
+            .navbar-area .navbar-brand {
+                font-size: 20px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+   
+    <!--====== PRELOADER PART START ======-->
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====== PRELOADER PART ENDS ======-->
+    
+    <!--====== NAVBAR PART START ======-->
+    <section class="navbar-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="#">
+                            🍗 WARUNG PEDO
+                            <small class="d-block">Penuh Doa, Penuh Rasa</small>
+                        </a>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTwo" aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
+                            <ul class="navbar-nav m-auto">
+                                <li class="nav-item active"><a class="page-scroll" href="#home">Beranda</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#menu">Menu</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#qrcode">QR Order</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#about">Sejarah</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#contact">Kontak</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="navbar-btn d-none d-sm-inline-block">
+                            <a class="btn-pedo" href="https://wa.me/6281234567890" target="_blank">
+                                <i class="lni lni-whatsapp"></i> Order via WA
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== NAVBAR PART ENDS ======-->
+    
+    <!--====== HERO SECTION START ======-->
+    <section id="home" class="slider_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="slider-content animate-fade-in">
+                        <h1 class="title">Warung Pedo</h1>
+                        <h2 class="pedo-text mb-4">"Penuh Doa, Penuh Rasa"</h2>
+                        <p class="text mb-4">Sejak 2017, menghadirkan cita rasa autentik dengan doa dalam setiap sajian. Dari Bogor untuk Indonesia.</p>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="lni lni-checkmark-circle text-success mr-3"></i>
+                                    <span>Ayam Penyet Terpedo</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="lni lni-checkmark-circle text-success mr-3"></i>
+                                    <span>Soto Betawi Asli</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="lni lni-checkmark-circle text-success mr-3"></i>
+                                    <span>Doger Special</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="lni lni-bolt text-warning mr-3"></i>
+                                    <span>Level Pedas 1-5</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="lni lni-timer text-info mr-3"></i>
+                                    <span>15-20 Menit Siap</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="lni lni-qrcode text-primary mr-3"></i>
+                                    <span>Order via QR Code</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="slider-btn">
+                            <a class="btn-pedo mr-3" href="#menu">Lihat Menu Lengkap</a>
+                            <a class="btn-pedo-outline" href="#qrcode">Cara Order QR</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="slider-image-box text-center animate-fade-in">
+                        <div class="slider-image position-relative">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Ayam Penyet Terpedo" class="img-fluid rounded-lg shadow-lg" style="max-height: 500px; width: 100%; object-fit: cover;">
+                            <div class="menu-badge best-seller">⭐ TERLARIS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== HERO SECTION ENDS ======-->
+    
+    <!--====== MENU SECTION START ======-->
+    <section id="menu" class="features-area pt-100 pb-70 pedo-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="section-title text-center pb-10">
+                        <h3 class="title">Menu Favorit</h3>
+                        <p class="text">Menu andalan yang paling banyak dipesan pelanggan kami</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <!-- Menu 1: Ayam Penyet -->
+                <div class="col-lg-4 col-md-6 col-sm-9">
+                    <div class="single-features mt-40 menu-card animate-fade-in">
+                        <div class="features-title-icon d-flex justify-content-between">
+                            <h4 class="features-title">Ayam Penyet Terpedo</h4>
+                            <div class="features-icon">
+                                <i class="lni lni-fire"></i>
+                            </div>
+                        </div>
+                        <div class="features-content position-relative">
+                            <div class="menu-badge best-seller">🔥 TERLARIS</div>
+                            <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Ayam Penyet Terpedo" class="img-fluid mb-3 rounded" style="height: 200px; width: 100%; object-fit: cover;">
+                            <p class="text">Ayam geprek dengan sambal spesial level 1-5. Dijamin nagih!</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <h5 class="pedo-text font-weight-bold mb-0">Rp 25.000</h5>
+                                <button class="btn-pedo btn-sm">+ Pesan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Menu 2: Soto Betawi -->
+                <div class="col-lg-4 col-md-6 col-sm-9">
+                    <div class="single-features mt-40 menu-card animate-fade-in" style="animation-delay: 0.1s;">
+                        <div class="features-title-icon d-flex justify-content-between">
+                            <h4 class="features-title">Soto Betawi</h4>
+                            <div class="features-icon">
+                                <i class="lni lni-bowl"></i>
+                            </div>
+                        </div>
+                        <div class="features-content">
+                            <img src="https://images.unsplash.com/photo-1585937421612-70ca003675ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Soto Betawi" class="img-fluid mb-3 rounded" style="height: 200px; width: 100%; object-fit: cover;">
+                            <p class="text">Soto dengan kuah santan kental, daging sapi empuk, dan rempah pilihan.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <h5 class="pedo-text font-weight-bold mb-0">Rp 20.000</h5>
+                                <button class="btn-pedo btn-sm">+ Pesan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Menu 3: Doger Special -->
+                <div class="col-lg-4 col-md-6 col-sm-9">
+                    <div class="single-features mt-40 menu-card animate-fade-in" style="animation-delay: 0.2s;">
+                        <div class="features-title-icon d-flex justify-content-between">
+                            <h4 class="features-title">Doger Special</h4>
+                            <div class="features-icon">
+                                <i class="lni lni-ice-cream"></i>
+                            </div>
+                        </div>
+                        <div class="features-content">
+                            <div class="menu-badge new">BARU</div>
+                            <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Doger Special" class="img-fluid mb-3 rounded" style="height: 200px; width: 100%; object-fit: cover;">
+                            <p class="text">Es doger dengan topping lengkap: alpukat, kelapa muda, sirup merah, dan susu.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <h5 class="pedo-text font-weight-bold mb-0">Rp 15.000</h5>
+                                <button class="btn-pedo btn-sm">+ Pesan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- All Menu Button -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-12 text-center">
+                    <a href="#all-menu" class="btn-pedo btn-lg">
+                        Lihat Semua Menu <i class="lni lni-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== MENU SECTION ENDS ======-->
+    
+    <!--====== QR ORDER SECTION START ======-->
+    <section id="qrcode" class="portfolio-area portfolio-four pb-100 pt-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center pb-10">
+                        <h3 class="title">Order via QR Code</h3>
+                        <p class="text">Pesan makanan langsung dari meja Anda tanpa antri!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <!-- Steps -->
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <div class="qr-step animate-fade-in">
+                                <div class="step-number">1</div>
+                                <h5>Scan QR Code di Meja</h5>
+                                <p class="text">Setiap meja memiliki QR code unik untuk order. Gunakan kamera smartphone Anda untuk scan.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12 mb-4">
+                            <div class="qr-step animate-fade-in" style="animation-delay: 0.1s;">
+                                <div class="step-number">2</div>
+                                <h5>Pilih Menu & Jumlah</h5>
+                                <p class="text">Lihat menu lengkap dengan foto dan harga. Tambahkan ke keranjang dan atur jumlah pesanan.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12 mb-4">
+                            <div class="qr-step animate-fade-in" style="animation-delay: 0.2s;">
+                                <div class="step-number">3</div>
+                                <h5>Tunggu Makanan Datang</h5>
+                                <p class="text">Pesanan akan siap dalam 15-20 menit. Anda bisa bayar langsung di kasir atau via QRIS.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- QR Code Example -->
+                    <div class="text-center mt-5 animate-fade-in">
+                        <div class="border rounded p-4 d-inline-block shadow-sm" style="background: white;">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://warungpedo.com/order/table-01&color=F97316&bgcolor=FFEDD5" 
+                                 alt="QR Code Example" class="img-fluid mb-3">
+                            <p class="small text-muted">Contoh QR Code untuk Table 01</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mockup Image -->
+                <div class="col-lg-6">
+                    <div class="text-center animate-fade-in" style="animation-delay: 0.3s;">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="QR Order Mockup" class="img-fluid rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== QR ORDER SECTION ENDS ======-->
+    
+    <!--====== SEJARAH SECTION START ======-->
+    <section id="about" class="about-area pedo-bg pt-100 pb-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-image mt-50 animate-fade-in">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Warung Pedo" class="img-fluid rounded-lg shadow">
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="about-content mt-45 animate-fade-in">
+                        <h3 class="title">Sejarah Warung Pedo</h3>
+                        <p class="text mb-4">Berdiri sejak tahun 2017 di Bogor, Warung Pedo dimulai dengan konsep sederhana: menyajikan makanan dengan penuh doa dan harapan.</p>
+                        
+                        <div class="timeline mt-4">
+                            <div class="timeline-item">
+                                <h5>2017 - Berdiri di Bogor</h5>
+                                <p class="text mb-3">Warung Pedo pertama kali dibuka dengan menu terbatas di daerah Bogor.</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5>2019 - Meluncurkan Ayam Penyet Terpedo</h5>
+                                <p class="text mb-3">Menu andalan yang langsung menjadi favorit pelanggan dengan level pedas 1-5.</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5>2021 - Expansi Lokasi</h5>
+                                <p class="text mb-3">Warung Pedo berkembang ke lokasi yang lebih strategis dengan menu yang lebih variatif.</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5>2024 - Sistem QR Order</h5>
+                                <p class="text mb-3">Mengimplementasikan sistem digital untuk kemudahan pelanggan dengan QR Code ordering.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-info mt-4">
+                            <div class="single-info d-flex align-items-center mb-3">
+                                <i class="lni lni-user mr-3 pedo-text"></i>
+                                <div>
+                                    <span class="font-weight-bold">Pemilik:</span> Doni Hidayat
+                                </div>
+                            </div>
+                            <div class="single-info d-flex align-items-center mb-3">
+                                <i class="lni lni-heart mr-3 pedo-text"></i>
+                                <div>
+                                    <span class="font-weight-bold">Filosofi:</span> "Pedo" = Penuh Doa
+                                </div>
+                            </div>
+                            <div class="single-info d-flex align-items-center">
+                                <i class="lni lni-calendar mr-3 pedo-text"></i>
+                                <div>
+                                    <span class="font-weight-bold">Tahun Berdiri:</span> 2017 (8+ tahun)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== SEJARAH SECTION ENDS ======-->
+    
+    <!--====== CONTACT SECTION START ======-->
+    <section id="contact" class="contact-area pt-100 pb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="section-title text-center pb-30">
+                        <h3 class="title">Kontak & Lokasi</h3>
+                        <p class="text">Kunjungi warung kami atau hubungi untuk informasi lebih lanjut</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Google Maps -->
+            <div class="row mb-5">
+                <div class="col-lg-12">
+                    <div class="contact-map mt-30">
+                        <iframe id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d106.82773631529484!3d-6.595566966312785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5d4c8f5f5f5%3A0x301e8f1fc28b8a0!2sBogor%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1647856781234!5m2!1sen!2sid" 
+                                frameborder="0" style="border:0; width: 100%; height: 400px; border-radius: 15px;" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="contact-info pt-30">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="contact-card animate-fade-in">
+                            <i class="lni lni-map-marker"></i>
+                            <h5>Alamat</h5>
+                            <p class="text">Jl. Raya Bogor No. 123<br>Bogor, Jawa Barat</p>
+                            <p class="text-muted small">(Dekat Pasar Bogor)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="contact-card animate-fade-in" style="animation-delay: 0.1s;">
+                            <i class="lni lni-phone"></i>
+                            <h5>Telepon & WhatsApp</h5>
+                            <p class="text">0812-3456-7890</p>
+                            <a href="https://wa.me/6281234567890" class="btn-pedo btn-sm mt-2" target="_blank">
+                                <i class="lni lni-whatsapp"></i> Chat Sekarang
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="contact-card animate-fade-in" style="animation-delay: 0.2s;">
+                            <i class="lni lni-timer"></i>
+                            <h5>Jam Operasional</h5>
+                            <p class="text">Setiap Hari</p>
+                            <p class="text">08.00 - 22.00 WIB</p>
+                            <p class="text-muted small">Makan di tempat • Takeaway • QR Order</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== CONTACT SECTION ENDS ======-->
+    
+    <!--====== FOOTER START ======-->
+    <section class="footer-area footer-dark" style="background-color: #1F2937;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="footer-logo text-center">
+                        <a class="mt-30" href="#">
+                            <h3 class="text-white">🍗 WARUNG PEDO</h3>
+                            <p class="text-light">"Penuh Doa, Penuh Rasa"</p>
+                        </a>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="row mt-4">
+                        <div class="col-md-4 text-center mb-4">
+                            <h6 class="text-white mb-3">Menu</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="#menu" class="text-light">Makanan</a></li>
+                                <li><a href="#menu" class="text-light">Minuman</a></li>
+                                <li><a href="#menu" class="text-light">Snack</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <h6 class="text-white mb-3">Layanan</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="#qrcode" class="text-light">QR Order</a></li>
+                                <li><a href="#contact" class="text-light">Takeaway</a></li>
+                                <li><a href="#contact" class="text-light">Catering</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <h6 class="text-white mb-3">Informasi</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="#about" class="text-light">Tentang Kami</a></li>
+                                <li><a href="#contact" class="text-light">Kontak</a></li>
+                                <li><a href="#qrcode" class="text-light">Cara Order</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <ul class="social text-center mt-4">
+                        <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
+                        <li><a href="#"><i class="lni lni-instagram-original"></i></a></li>
+                        <li><a href="https://wa.me/6281234567890" target="_blank"><i class="lni lni-whatsapp"></i></a></li>
+                    </ul>
+                    
+                    <!-- Copyright -->
+                    <div class="copyright text-center mt-35">
+                        <p class="text-light">© 2024 Warung Pedo. Semua hak dilindungi.</p>
+                        <p class="text-light">Dibuat dengan doa sejak 2017</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== FOOTER ENDS ======-->
+    
+    <!--====== BACK TO TOP START ======-->
+    <a href="#" class="back-to-top"><i class="lni lni-chevron-up"></i></a>
+    <!--====== BACK TO TOP ENDS ======-->    
+
+    <!--====== JAVASCRIPT LIBRARIES ======-->
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/scrolling-nav.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!--====== CUSTOM JAVASCRIPT ======-->
+    <script>
+        $(document).ready(function() {
+            // Remove preloader
+            $('.preloader').fadeOut();
+            
+            // Add to cart functionality
+            $('.btn-pedo').on('click', function(e) {
+                if ($(this).text().includes('+ Pesan')) {
+                    e.preventDefault();
+                    const menuName = $(this).closest('.menu-card').find('.features-title').text();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Ditambahkan!',
+                        text: `"${menuName}" telah ditambahkan ke keranjang`,
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                    });
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            $('a.page-scroll').on('click', function(e) {
+                if (this.hash !== '') {
+                    e.preventDefault();
+                    const hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 80
+                    }, 800);
+                }
+            });
+            
+            // Navbar scroll effect
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('.navbar-area').addClass('navbar-scrolled');
+                } else {
+                    $('.navbar-area').removeClass('navbar-scrolled');
+                }
+            });
+            
+            // Form submission
+            $('#contact-form').on('submit', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Pesan Terkirim!',
+                    text: 'Terima kasih telah menghubungi Warung Pedo. Kami akan membalas pesan Anda segera.',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#F97316'
+                });
+                $(this).trigger('reset');
+            });
+            
+            // Initialize animations on scroll
+            function animateOnScroll() {
+                $('.animate-fade-in').each(function() {
+                    const elementTop = $(this).offset().top;
+                    const elementBottom = elementTop + $(this).outerHeight();
+                    const viewportTop = $(window).scrollTop();
+                    const viewportBottom = viewportTop + $(window).height();
+                    
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        $(this).addClass('animated');
+                    }
+                });
+            }
+            
+            $(window).scroll(animateOnScroll);
+            animateOnScroll();
+        });
+    </script>
+    
+    <!-- SweetAlert2 for notifications -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+</body>
+</html>
